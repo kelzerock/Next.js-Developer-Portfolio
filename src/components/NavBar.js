@@ -4,10 +4,10 @@ import Logo from "./Logo";
 import { useRouter } from "next/router";
 import {
   TwitterIcon,
-  DribbbleIcon,
   GithubIcon,
   LinkedInIcon,
   PinterestIcon,
+  CodewarsIcon
 } from "./Icons";
 import { motion } from "framer-motion";
 
@@ -39,8 +39,8 @@ const IconsMaterial = [
     href: "https://x.com/",
   },
   {
-    element: <DribbbleIcon />,
-    href: "https://x.com/",
+    element: <CodewarsIcon />,
+    href: "https://www.codewars.com/users/kelzerock/stats",
   },
   {
     element: <GithubIcon />,
@@ -81,7 +81,7 @@ const NavBar = () => {
             whileTap={{ scale: 0.9 }}
             className="w-6 mr-3"
           >
-            {el.element}
+            {el.element }
           </motion.a>
         ))}
       </nav>
