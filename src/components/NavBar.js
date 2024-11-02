@@ -13,7 +13,6 @@ import { motion } from "framer-motion";
 
 const CustomLink = ({ href, title, className = "" }) => {
   const router = useRouter();
-  console.log(router);
   return (
     <Link href={href} className={`${className} relative group`}>
       {title}
@@ -34,6 +33,29 @@ const LinkInfo = [
   { href: "/articles", title: "Articles" },
 ];
 
+const IconsMaterial = [
+  {
+    element: <TwitterIcon />,
+    href: "https://x.com/",
+  },
+  {
+    element: <DribbbleIcon />,
+    href: "https://x.com/",
+  },
+  {
+    element: <GithubIcon />,
+    href: "https://x.com/",
+  },
+  {
+    element: <LinkedInIcon />,
+    href: "https://x.com/",
+  },
+  {
+    element: <PinterestIcon />,
+    href: "https://x.com/",
+  },
+];
+
 const NavBar = () => {
   return (
     <header className="w-full px-32 py-8 font-medium flex justify-between items-center">
@@ -50,51 +72,18 @@ const NavBar = () => {
         ))}
       </nav>
       <nav className="flex justify-center items-center flex-wrap">
-        <motion.a
-          href="https://x.com/"
-          target="_blank"
-          whileHover={{y: -2,}}
-          whileTap={{scale:.9}}
-          className="w-6 mr-3"
-        >
-          <TwitterIcon />
-        </motion.a>
-        <motion.a
-          href="https://x.com/"
-          target="_blank"
-          whileHover={{ y: -2 }}
-          whileTap={{scale:.9}}
-          className="w-6 mr-3"
-        >
-          <GithubIcon />
-        </motion.a>
-        <motion.a
-          href="https://x.com/"
-          target="_blank"
-          whileHover={{ y: -2 }}
-          whileTap={{scale:.9}}
-          className="w-6 mr-3"
-        >
-          <LinkedInIcon />
-        </motion.a>
-        <motion.a
-          href="https://x.com/"
-          target="_blank"
-          whileHover={{ y: -2 }}
-          whileTap={{scale:.9}}
-          className="w-6 mr-3"
-        >
-          <PinterestIcon />
-        </motion.a>
-        <motion.a
-          href="https://x.com/"
-          target="_blank"
-          whileHover={{ y: -2 }}
-          whileTap={{scale:.9}}
-          className="w-6"
-        >
-          <DribbbleIcon />
-        </motion.a>
+        {IconsMaterial.map((el, ind) => (
+          <motion.a
+            key={ind}
+            href={`${el.href}`}
+            target="_blank"
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.9 }}
+            className="w-6 mr-3"
+          >
+            {el.element}
+          </motion.a>
+        ))}
       </nav>
       <div className="absolute left-[50%] top-2 translate-x-[-50%]">
         <Logo />
