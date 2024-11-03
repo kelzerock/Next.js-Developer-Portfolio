@@ -5,20 +5,17 @@ import React, { useEffect, useRef } from "react";
 import profileImage from "../../public/images/profile/developer-pic-2.jpg";
 import Image from "next/image";
 import { aboutConfig } from "@/config/aboutConfig";
-import {
-  useInView,
-  useMotionValue,
-  useMotionValueEvent,
-  useSpring,
-} from "framer-motion";
+import { useInView, useMotionValue, useSpring } from "framer-motion";
 import Skills from "@/components/Skills";
+import Experience from "@/components/Experience";
+import Education from "@/components/Education";
 
 const AnimatedNumbers = ({ value }) => {
   const ref = useRef(null);
 
   const motionValue = useMotionValue(0);
   const springValue = useSpring(motionValue, { duration: 3000 });
-  const isInView = useInView(ref, {once: true});
+  const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
     if (isInView) {
@@ -85,6 +82,8 @@ const about = () => {
             </div>
           </div>
           <Skills />
+          <Experience />
+          <Education />
         </Layout>
       </main>
     </>
