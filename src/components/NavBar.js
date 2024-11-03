@@ -10,6 +10,7 @@ import {
   CodewarsIcon
 } from "./Icons";
 import { motion } from "framer-motion";
+import { navigationLinks } from "@/config/navigationLinks";
 
 const CustomLink = ({ href, title, className = "" }) => {
   const router = useRouter();
@@ -25,13 +26,6 @@ const CustomLink = ({ href, title, className = "" }) => {
     </Link>
   );
 };
-
-const LinkInfo = [
-  { href: "/", title: "Home" },
-  { href: "/about", title: "About" },
-  { href: "/projects", title: "Projects" },
-  { href: "/articles", title: "Articles" },
-];
 
 const IconsMaterial = [
   {
@@ -60,16 +54,26 @@ const NavBar = () => {
   return (
     <header className="w-full px-32 py-8 font-medium flex justify-between items-center">
       <nav>
-        {LinkInfo.map((el, ind) => (
           <CustomLink
-            href={el.href}
-            title={el.title}
-            key={ind}
-            className={
-              ind === 0 ? "mr-4" : ind === LinkInfo.length - 1 ? "ml-4" : "mx-4"
-            }
+            href={navigationLinks.home.href}
+            title={navigationLinks.home.title}
+            className={"mr-4"}
           />
-        ))}
+          <CustomLink
+            href={navigationLinks.about.href}
+            title={navigationLinks.about.title}
+            className={"mr-4"}
+          />
+          <CustomLink
+            href={navigationLinks.project.href}
+            title={navigationLinks.project.title}
+            className={"mr-4"}
+          />
+          <CustomLink
+            href={navigationLinks.articles.href}
+            title={navigationLinks.articles.title}
+            className={"mr-4"}
+          />
       </nav>
       <nav className="flex justify-center items-center flex-wrap">
         {IconsMaterial.map((el, ind) => (
